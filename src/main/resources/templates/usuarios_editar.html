@@ -17,7 +17,7 @@
     <div class="col-sm">
         <h1>Adicionar Usuário</h1>
 
-        <form th:action="@{/usuarios/add}" th:object="${usuarioEntity}" method="post">
+        <form th:action="@{/usuarios/editar/{id}(id=${usuarioEntity.id})}" th:object="${usuarioEntity}" method="put">
             <div class="mb-3">
                 <label for="exampleInputNome" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="exampleInputNome" th:field="*{nome}">
