@@ -40,10 +40,19 @@ public class UsuarioController {
     }
 
     @PostMapping("/add")
-    public String addUsuario(UsuarioEntity usuarioEntity){
+    public ModelAndView addUsuario(UsuarioEntity usuarioEntity){
 
-        usuarioService.save(usuarioEntity);
-        return "redirect:/usuarios/";
+        ModelAndView mav = new ModelAndView();
+
+        if(usuarioService.save(usuarioEntity)){
+            mav.setViewName("usuarios_listar");
+            mav.addObject("erroEmail", "");
+            return listarUsuarios();
+        }
+
+        mav.setViewName("usuarios_add");
+        mav.addObject("erroEmail", "E-mail já existe!");
+        return mav;
     }
 
     @GetMapping("/deletar/{id}")
@@ -66,10 +75,18 @@ public class UsuarioController {
     }
 
     @PostMapping("/editar/{id}")
-    public String editarUsuario(UsuarioEntity usuarioEntity){
+    public ModelAndView editarUsuario(UsuarioEntity usuarioEntity){
 
-        usuarioService.save(usuarioEntity);
+        ModelAndView mav = new ModelAndView();
 
-        return "redirect:/usuarios/";
+        if(usuarioService.save(usuarioEntity)){
+            mav.setViewName("usuarios_listar");
+            mav.addObject("erroEmail", "");
+            return listarUsuarios();
+        }
+
+        mav.setViewName("usuarios_editar");
+        mav.addObject("erroEmail", "E-mail já existe!");
+        return mav;
     }
 }

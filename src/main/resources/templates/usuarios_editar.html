@@ -25,6 +25,7 @@
             <div class="mb-3">
                 <label for="exampleInputEmail" class="form-label">Email</label>
                 <input type="text" class="form-control" id="exampleInputEmail" th:field="*{email}">
+                <div class="text-danger text-center" th:text="${erroEmail}"></div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputIdade" class="form-label">Idade</label>

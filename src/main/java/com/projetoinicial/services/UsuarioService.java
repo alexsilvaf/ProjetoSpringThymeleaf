@@ -20,14 +20,18 @@ public class UsuarioService {
 
     public boolean save(UsuarioEntity usuarioEntity) {
 
-        UsuarioEntity usuarioEncontrado = findUsuarioEntityByEmail(usuarioEntity.getEmail());
+        if(!usuarioEntity.getEmail().equals("")){
+            UsuarioEntity usuarioEncontrado = findUsuarioEntityByEmail(usuarioEntity.getEmail());
 
-        if(usuarioEncontrado == null) {
-            usuarioRepository.save(usuarioEntity);
-            return true;
+            if(usuarioEncontrado == null) {
+                usuarioRepository.save(usuarioEntity);
+                return true;
+            }
+            return false;
         }
 
         return false;
+
     }
 
     public void delete(UsuarioEntity usuarioEntity) {
