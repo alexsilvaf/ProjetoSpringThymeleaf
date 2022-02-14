@@ -13,23 +13,38 @@ public class UsuarioService {
     UsuarioRepository usuarioRepository;
 
     public List<UsuarioEntity> findAll(){
+
         return usuarioRepository.findAll();
     }
 
 
-    public void save(UsuarioEntity usuarioEntity) {
+    public boolean save(UsuarioEntity usuarioEntity) {
 
-        usuarioRepository.save(usuarioEntity);
+        UsuarioEntity usuarioEncontrado = findUsuarioEntityByEmail(usuarioEntity.getEmail());
+
+        if(usuarioEncontrado == null) {
+            usuarioRepository.save(usuarioEntity);
+            return true;
+        }
+
+        return false;
+    }
+
+    public void delete(UsuarioEntity usuarioEntity) {
+
+        usuarioRepository.delete(usuarioEntity);
+    }
+
+    public UsuarioEntity findUsuarioEntityByEmail(String email){
+
+        UsuarioEntity usuarioEntity = usuarioRepository.findUsuarioEntityByEmail(email);
+
+        return usuarioEntity;
     }
 
     public UsuarioEntity findUsuarioEntityById(Long id) {
         UsuarioEntity usuarioEntity = usuarioRepository.findUsuarioEntityById(id);
 
         return usuarioEntity;
-    }
-
-    public void delete(UsuarioEntity usuarioEntity) {
-
-        usuarioRepository.delete(usuarioEntity);
     }
 }
