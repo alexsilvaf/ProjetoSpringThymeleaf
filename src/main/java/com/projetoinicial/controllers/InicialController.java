@@ -1,14 +1,11 @@
 package com.projetoinicial.controllers;
 
 import com.projetoinicial.models.AcessoEntity;
-import com.projetoinicial.models.UsuarioEntity;
 import com.projetoinicial.repositories.AcessoRepository;
-import com.projetoinicial.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
