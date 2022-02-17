@@ -6,7 +6,7 @@ build/
 !**/src/test/**/build/
 
 ### PROJECT ###
-!**/src/main/resources/template-dev/
+!**/src/main/resources/**/template-dev/
 
 ### STS ###
 .apt_generated
