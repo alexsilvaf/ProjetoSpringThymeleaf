@@ -16,6 +16,11 @@ public class InicialController {
     AcessoRepository acessoRepository;
 
     @GetMapping
+    public String inicial(){
+        return "dashboard";
+    }
+
+    @GetMapping("/acessos")
     public String mostrarPaginaInicial(){
 
         AcessoEntity acessoEntity = new AcessoEntity();

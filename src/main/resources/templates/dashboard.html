@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Dashboard</title>
+    <div th:replace="fragments/head"></div>
+</head>
+
+<body>
+<div id="app">
+    <div th:replace="fragments/menu"></div>
+
+    <div id="main">
+
+        <div class="page-content">
+            <div th:replace="fragments/dashboard_fragment"></div>
+
+        </div>
+
+    </div>
+
+
+    <div th:replace="fragments/scripts"></div>
+</div>
+
+</body>
+
+</html>
