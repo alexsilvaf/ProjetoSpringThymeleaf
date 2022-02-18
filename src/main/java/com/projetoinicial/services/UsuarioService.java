@@ -34,6 +34,17 @@ public class UsuarioService {
 
     }
 
+    public boolean update(UsuarioEntity usuario, UsuarioEntity usuarioUpdate){
+        UsuarioEntity usuarioEncontrado = usuarioRepository.findUsuarioEntityByEmail(usuarioUpdate.getEmail());
+        if(usuarioEncontrado.getId() != null && usuarioEncontrado.getId() != usuario.getId()){
+            return false;
+        }
+
+        usuario.update(usuarioUpdate);
+        usuarioRepository.save(usuario);
+        return true;
+    }
+
     public void delete(UsuarioEntity usuarioEntity) {
 
         usuarioRepository.delete(usuarioEntity);

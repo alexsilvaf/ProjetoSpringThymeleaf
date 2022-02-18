@@ -77,9 +77,11 @@ public class UsuarioController {
     @PostMapping("/editar/{id}")
     public ModelAndView editarUsuario(UsuarioEntity usuarioEntity){
 
+
         ModelAndView mav = new ModelAndView();
 
-        if(usuarioService.save(usuarioEntity)){
+        UsuarioEntity usuario = usuarioService.findUsuarioEntityById(usuarioEntity.getId());
+        if(usuarioService.update(usuario, usuarioEntity)){
             mav.setViewName("usuarios_listar");
             mav.addObject("erroEmail", "");
             return listarUsuarios();

@@ -57,6 +57,12 @@ public class UsuarioEntity implements Serializable {
         this.email = email;
     }
 
+    public void update(UsuarioEntity usuario){
+        this.idade = usuario.getIdade();
+        this.nome = usuario.getNome();
+        this.email = usuario.getEmail();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
